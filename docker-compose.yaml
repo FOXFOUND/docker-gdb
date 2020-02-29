@@ -1,0 +1,19 @@
+version: '3'
+services:
+  gdbenv:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "centos-gdb"
+    ports:
+      - "60000:60000"
+    volumes:
+      - ".:/src"
+    environment:
+      - TLS=disable
+    command: ["/bin/bash", "-ec", "while :; do echo -n `date`;echo ' HELLO WORLD'; sleep 60 ; done"]
+    networks:
+      - gdb_nw
+networks:
+  gdb_nw:
+    driver: bridge

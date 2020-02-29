@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+         "name": "(lldb) Launch",
+         "type": "cppdbg",
+         "request": "launch",
+         "program": "${workspaceFolder}/mainapp", #二进制文件所在路径
+         "miDebuggerServerAddress": "127.0.0.1:60000", #容器所暴露的gdbserver端口
+         "args": [], #一些外参
+         "stopAtEntry": true, #这里一定要写true，否则会报错
+         "cwd": "${workspaceFolder}",
+         "environment": [],
+         "externalConsole": false,
+         "MIMode": "gdb", #本地的gdb命令
+         "sourceFileMap":{
+           "/src": "${workspaceRoot}" #本地源码与容器内部源码对应路径
+         }
+      }
+     ]
+   }
